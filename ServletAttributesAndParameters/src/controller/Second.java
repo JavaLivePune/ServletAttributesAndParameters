@@ -40,9 +40,13 @@ public class Second extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Getting and displaying values of context int parameters to console.
 		ServletContext context = this.getServletContext();
-		System.out.println("In Second servlet....."
-				+ "Value of context parameter is "+context.getInitParameter("bestJavaInstitute"));
-		PrintWriter out = response.getWriter();
+		System.out.println("Now we are in Second servlet....."
+				+ "\nValue of applications context parameter viz. bestJavaInstitute is "+context.getInitParameter("bestJavaInstitute"));
+		PrintWriter out = response.getWriter();//Here we are using this object to write the response 
+		//to client's browser. Please note that this is not at all a way to display output in the real
+		//world application we are doing this only for serve the purpose of learning the concept of attributes.
+		//In real world application various view technologies viz jsp etc. are used to display data to user which we learn
+		//in coming lectures.
 		String requestAttribute = (String) request.getAttribute("requestAttribute");  //getting attribute from request scope
         out.println("<br />Value of request attribute is "+requestAttribute);  // Prints : Value of context attribute is RequestAttribute   
         ServletContext sc = getServletContext();
